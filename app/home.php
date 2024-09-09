@@ -12,60 +12,54 @@
 </head>
 
 <body>
-  <div class="login-page">
-    <div class="video-container"></div>
-    <div class="login-container">
-      <div class="login-box">
-        <div class="header">Đăng nhập</div>
-        <div class="hi">Chào mừng bạn quay trờ lại!</div>
-        <div class="form">
-          <div class="items">
-            <div class="name">Tài khoản</div>
-            <div class="value"><input id="username" type="text" placeholder="tên đăng nhập..."></div>
-          </div>
-          <div class="items">
-            <div class="name">Mật khẩu</div>
-            <div class="value"><input id="password" type="password" placeholder="mật khẩu..."></div>
+  <div class="left-container">
+    <div class="menu-fixed"></div>
+    <div class="menu-box"></div>
+  </div>
+  <div class="right-container">
+    <div class="top-container">
+      <div class="routes">
+        <div class="items"><i class="fa-regular fa-house"></i></div>
+        <div class="split"><i class="fa-solid fa-angle-right"></i></div>
+        <div class="items">Tổng quan</div>
+      </div>
+      <div class="right-tools">
+        <div class="tools-list">
+          <div class="itemc">
+            <input type="text" placeholder="Search...">
           </div>
         </div>
-        <div class="login-btn"><button id="login-btn">Đăng nhập</button></div>
-        <div class="with-zalo"><button>Đăng nhập bằng Zalo</button></div>
-        <div class="fc g4">
-          <div class="flex register">Đăng ký tài khoản mới</div>
-          <div class="flex forget-pass">Quên mật khẩu?</div>
-          <div class="flex exit">Thoát</div>
+        <div class="tools-list">
+          <div class="itemc"><i class="fa-solid fa-wifi"></i> 265ms</div>
+        </div>
+        <div class="tools-list">
+          <div class="itemx"><i class="fa-sharp fa-regular fa-question"></i> Hỗ trợ</div>
+          <div class="itemx"><i class="fa-light fa-book"></i> Tài liệu</div>
+          <div class="itemx"><i class="fa-light fa-bug"></i> Báo lỗi</div>
+        </div>
+        <div class="tools-list pd3 g5">
+          <div class="items app-hide"><i class="fa-solid fa-minus"></i></div>
+          <div class="items app-expland"><i class="fa-solid fa-expand"></i></div>
+          <div class="items app-close"><i class="fa-solid fa-xmark"></i></div>
         </div>
       </div>
     </div>
+    <div class="main-container"></div>
   </div>
 </body>
 <script type="text/javascript">
   $(document).ready(function() {
-    if (app.getLocal("username")) {
-      $("#username").val(app.getLocal("username"));
-    }
-    if (app.getLocal("username")) {
-      $("#password").val(app.getLocal("password"));
-    }
-    $("#login-btn").click(async function() {
-      try {
-        var data = {
-          username: $("#username").val(),
-          password: $("#password").val()
-        }
-        var login = await app.post("/login", data);
-        app.setLocal("username", data.username);
-        app.setLocal("password", data.password);
-        console.log(data);
-      } catch (e) {
-
-      }
-    });
     var ipc = null;
     if (window.electron) {
       ipc = window.electron;
     }
-    $(".exit").click(() => {
+    $(".app-hide").click(() => {
+      ipc.send("minimize");
+    });
+    $(".app-expland").click(() => {
+      ipc.send("maximize");
+    });
+    $(".app-close").click(() => {
       ipc.send("exit");
     });
     try {
