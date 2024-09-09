@@ -1,0 +1,182 @@
+body{
+  position: fixed;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  font-family: Roboto, system-ui, -apple-system, 'Open Sans', sans-serif;
+  font-size: 0.7rem;
+  background-color: #e4e1e9;
+}
+.left-container{
+  display: flex;
+  height: 100%;
+  padding: 5px;
+  gap: 5px;
+  .menu-fixed{
+    display: flex;
+    height: calc(100% - 10px);
+    background-color: #fff;
+    width: 60px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px #0003;
+  }
+  .menu-box{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    background-color: #fff;
+    height: calc(100% - 10px);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px #0003;
+  }
+}
+.right-container{
+  display: flex;
+  flex: 1;
+  padding: 5px;
+  flex-direction: column;
+  .main-container{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    background-color: transparent;
+  }
+  .top-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: -webkit-fill-available;
+    -webkit-app-region: drag;
+    .routes{
+      display: flex;
+      -webkit-app-region: no-drag;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 1px 1px 3px #0003;
+      overflow: hidden;
+      user-select: none;
+      padding: 0px 10px;
+      gap: 5px;
+      align-items: center;
+      .split{
+        padding: 0px 5px;
+        color: #dadada;
+      }
+      .items{
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        font-size: 0.8rem;
+        cursor: pointer;;
+        color: #999;
+        transition: all 0.3s;
+        border-radius: 10px;
+        i{
+          font-size: 1rem;
+        }
+      }
+    }
+    .right-tools{
+      display: flex;
+      gap: 10px;
+      .tools-list{
+        display: flex;
+        -webkit-app-region: no-drag;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 1px 1px 3px #0003;
+        overflow: hidden;
+        user-select: none;
+        .itemc{
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.8rem;
+          cursor: pointer;;
+          color: #00ca54;
+          gap: 5px;
+          padding: 0px 10px;
+          transition: all 0.3s;
+          input[type="text"]{
+            display: flex;
+            align-items: center;
+            border: hidden;
+            outline: none;
+            padding: 4px 4px 2px 4px;
+            width: 190px;
+            transition: all 0.3s;
+            &:focus{
+              width: 200px;
+            }
+          }
+        }
+        .itemx{
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.8rem;
+          cursor: pointer;;
+          color: #b36c42;
+          gap: 5px;
+          padding: 0px 10px;
+          transition: all 0.3s;
+          i{
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffaf80;
+            border-radius: 7px;
+            color: #fff;
+            transition: all 0.3s;
+          }
+          &:hover{
+            color: #ff5e00;
+            background-color: #ffeee5;
+            i{
+              background: #ff8000;
+            }
+          }
+        }
+        .items{
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          font-size: 0.8rem;
+          cursor: pointer;;
+          color: #999;
+          transition: all 0.3s;
+          border-radius: 10px;
+          &:hover{
+            background-color: #d8f3ff;
+            color: #005589;
+            box-shadow: 1px 1px 3px #0003 inset;
+          }
+          &:last-child{
+            &:hover{
+              background-color: #ffc7c7;
+              color: #ff0000;
+              box-shadow: 1px 1px 3px #0003 inset;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.pd3{
+  padding: 3px;
+}
+.g5{
+  gap: 5px;
+}
